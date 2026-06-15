@@ -7,7 +7,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="family">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@300;400;600;700&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -23,7 +23,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Noto Sans Ethiopic', sans-serif;
+            font-family: 'Poppins', 'Cairo', 'Noto Sans Ethiopic', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -31,6 +31,11 @@
             background-color: var(--light);
             color: var(--dark);
             overflow-x: hidden;
+        }
+
+        body.rtl {
+            direction: rtl;
+            text-align: right;
         }
 
         /* --- Animations --- */
@@ -68,6 +73,10 @@
             border-bottom: 2px solid var(--secondary);
         }
 
+        body.rtl .lang-banner {
+            flex-direction: row-reverse;
+        }
+
         .lang-toggle select {
             background: transparent;
             color: var(--secondary);
@@ -92,6 +101,10 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
+        body.rtl header {
+            flex-direction: row-reverse;
+        }
+
         .logo h1 {
             color: var(--white);
             font-size: 1.5rem;
@@ -108,6 +121,11 @@
             font-size: 0.95rem;
         }
 
+        body.rtl nav a {
+            margin-left: 0;
+            margin-right: 25px;
+        }
+
         nav a:hover { color: var(--secondary); }
 
         /* --- Hero Section --- */
@@ -122,6 +140,10 @@
             align-items: flex-start;
             padding: 0 10%;
             animation: fadeInUp 1s ease-out;
+        }
+
+        body.rtl .hero {
+            align-items: flex-start;
         }
 
         .hero h2 { font-size: 3rem; margin-bottom: 10px; line-height: 1.2; }
@@ -157,6 +179,14 @@
             border-left: 4px solid var(--primary);
             padding-left: 15px;
         }
+        
+        body.rtl .trust-card {
+            border-left: none;
+            border-right: 4px solid var(--primary);
+            padding-left: 0;
+            padding-right: 15px;
+        }
+
         .trust-card h4 { color: var(--primary); margin-bottom: 5px; font-size: 1.1rem; }
         .trust-card p { font-size: 0.9rem; color: #555; }
 
@@ -214,6 +244,10 @@
         }
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
+        
+        body.rtl .left { text-align: left; }
+        body.rtl .right { text-align: right; }
+
         .right::after { left: -10px; }
         .content {
             padding: 20px 30px; background: var(--white); position: relative; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -289,7 +323,9 @@
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; padding: 15px; text-align: center; }
+            body.rtl header { flex-direction: column; }
             nav a { margin: 0 10px; font-size: 0.85rem; }
+            body.rtl nav a { margin: 0 10px; }
             .hero h2 { font-size: 2rem; }
             .trust-banner { margin: -30px 2% 20px 2%; grid-template-columns: 1fr; }
             .timeline::after { left: 31px; }
@@ -311,6 +347,7 @@
             <select id="langSelector" onchange="toggleLanguage()">
                 <option value="en">English</option>
                 <option value="am">አማርኛ (Amharic)</option>
+                <option value="ar">العربية (Arabic)</option>
             </select>
         </div>
     </div>
@@ -332,7 +369,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="badge" id="hero-badge">Licensed Private Employment Agency</div>
-        <h2 id="hero-title">Safe, Legal & Transparent<br>Oversees Recruitment</h2>
+        <h2 id="hero-title">Safe, Legal & Transparent<br>Overseas Recruitment</h2>
         <p id="hero-desc">Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.</p>
         <div class="cta-buttons">
             <a href="#contact" class="btn btn-primary" id="hero-btn1"><i class="fa-brands fa-whatsapp"></i> Apply Now</a>
@@ -367,7 +404,7 @@
             <div class="dest-card animate-up">
                 <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1586724237569-f38559b80894?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="dest-info">
-                    <h3>🇸🇦 Saudi Arabia (KSA)</h3>
+                    <h3 id="d1-country">🇸🇦 Saudi Arabia (KSA)</h3>
                     <ul>
                         <li><span class="lbl-salary">Monthly Salary:</span> <strong>1,000 - 1,200 SAR</strong></li>
                         <li><span class="lbl-hours">Max Work Hours:</span> <strong>10 Hours / Day</strong></li>
@@ -381,7 +418,7 @@
             <div class="dest-card animate-up">
                 <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1608958416733-4dfbbda82eb2?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="dest-info">
-                    <h3>🇰🇼 Kuwait</h3>
+                    <h3 id="d2-country">🇰🇼 Kuwait</h3>
                     <ul>
                         <li><span class="lbl-salary">Monthly Salary:</span> <strong>100 - 110 KWD</strong></li>
                         <li><span class="lbl-guarantee">Guarantee Period:</span> <strong>6 Months (PAM Regulated)</strong></li>
@@ -517,6 +554,7 @@
                 t2Title: "<i class='fa-solid fa-building'></i> Registered Agency", t2Desc: "MOHAMMED EMPLOYMENT AGENT",
                 t3Title: "<i class='fa-solid fa-user-tie'></i> Agency Manager", t3Desc: "Mr. Mohammed Ebrahim Oumer",
                 destSecTitle: "Countries of Destination",
+                d1Country: "🇸🇦 Saudi Arabia (KSA)", d2Country: "🇰🇼 Kuwait",
                 lblSalary: "Monthly Salary:", lblHours: "Max Work Hours:", lblRest: "Weekly Rest:", lblProbation: "Probation Period:", lblBenefits: "Tickets & Leave:",
                 lblGuarantee: "Guarantee Period:", lblIndemnity: "End-of-Service Bonus:", lblAmenities: "Basic Amenities:",
                 procSecTitle: "Our Recruitment Process",
@@ -545,6 +583,7 @@
                 t2Title: "<i class='fa-solid fa-building'></i> የድርጅቱ ስም", t2Desc: "መሀመድ ኢብራሂም ኡመር የውጪ አገር ሥራ አገናኝ",
                 t3Title: "<i class='fa-solid fa-user-tie'></i> የሥራ አስኪያጅ ስም", t3Desc: "አቶ መሀመድ ኢብራሂም ኡመር",
                 destSecTitle: "የሥራ መዳረሻ አገራት",
+                d1Country: "🇸🇦 المملكة العربية السعودية", d2Country: "🇰🇼 دولة الكويت",
                 lblSalary: "ወርሃዊ ደመወዝ:", lblHours: "ከፍተኛ የሥራ ሰዓት:", lblRest: "የሳምንት ዕረፍት:", lblProbation: "የሙከራ ጊዜ:", lblBenefits: "ትኬት እና ፈቃድ:",
                 lblGuarantee: "የዋስትና ጊዜ:", lblIndemnity: "የአገልግሎት ማጠናቀቂያ ክፍያ:", lblAmenities: "መሰረታዊ ፍላጎቶች:",
                 procSecTitle: "የቅጥር አሠራር ሂደታችን",
@@ -559,14 +598,50 @@
                 s1: "<strong>የቤት አያያዝ:</strong> ጥራትን የጠበቀ ጽዳት፣ ማደራጀት እና የክፍል አስተዳደር ድጋፍ።", s2: "<strong>ልብስ ማጠብ እና መተኮስ:</strong> ማጠብ፣ በባለሙያ መተኮስ እና ልብሶችን በአግባቡ መያዝ።", s3: "<strong>የምግብ ዝግጅት ድጋፍ:</strong> የምግብ ዝግጅት እገዛ እና የአረብ ወይም የአካባቢውን ምግቦች መልመድ።", s4: "<strong>የቤተሰብ ድጋፍ:</strong> መሠረታዊ የሕፃናት እንክብካቤ እና የተዋቀሩ የአረጋውያን ድጋፍ።",
                 wTitle: "የ24/7 የሠራተኞች ደኅንነት እና ድጋፍ", wDesc: "ፍጹም ቅድሚያ የምንሰጠው ጉዳይ የሠራተኞቻችን ደኅንነት እና ደህንነት ነው። ማንኛውንም የደመወዝ ወይም የሥራ ቦታ አለመግባባቶች በተረጋጋ ሁኔታ ለመፍታት ንቁ የአደጋ ጊዜ የመገናኛ መስመሮችን እንይዛለን እንዲሁም ከውጭ አጋሮች ጋር ያለማቋረጥ እናስተባብራለን።",
                 fAddr: "<strong>የቢሮ አድራሻ:</strong><br>አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02<br>ኢትዮጵያ",
-                fLegalTitle: "ሕጋዊ ማዕቀፍ", fLegalDesc: "በኢትዮጵያ የሥራና ክህሎት ሚኒስቴር ሙሉ በሙሉ እውቅና የተሰጠው። በውጭ አገር የሥራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የሚሠራ።",
+                fLegalTitle: "ሕጋዊ ማዕቀፍ", fLegalDesc: "በኢትዮጵያ የሥራና ክህلوት ሚኒስቴር ሙሉ በሙሉ እውቅና የተሰጠው። በውጭ አገር የሥራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የሚሠራ።",
                 fContactTitle: "ቀጥታ ጥያቄዎች"
+            },
+            ar: {
+                navLogo: "مكتب محمد<span> للتوظيف الخارجي</span>",
+                lnkHome: "الرئيسية", lnkDest: "الوجهات", lnkProc: "مسار العمل", lnkReq: "الشروط", lnkCont: "اتصل بنا",
+                heroBadge: "وكالة توظيف خاصة مرخصة رسمياً",
+                heroTitle: "توظيف خارجي آمن،<br>قانوني وشفاف بالكامل",
+                heroDesc: "نربط الكفاءات الإثيوبية المؤهلة بأرقى العائلات في دول الخليج، بما يتوافق تماماً مع القوانين واللوائح الوزارية الرسمية.",
+                heroBtn1: "<i class='fa-brands fa-whatsapp'></i> قدم طلبك الآن", heroBtn2: "اكتشف آلية عملنا",
+                t1Title: "<i class='fa-solid fa-shield-halved'></i> الامتثال القانوني", t1Desc: "بموجب المرسوم الحكومي رقم 923/2016 و 1246/2021",
+                t2Title: "<i class='fa-solid fa-building'></i> اسم الوكالة", t2Desc: "مكتب محمد إبراهيم عمر للاستقدام",
+                t3Title: "<i class='fa-solid fa-user-tie'></i> المدير العام", t3Desc: "السيد محمد إبراهيم عمر",
+                destSecTitle: "دول وجهات العمل والاستقدام",
+                d1Country: "🇸🇦 المملكة العربية السعودية", d2Country: "🇰🇼 دولة الكويت",
+                lblSalary: "الراتب الشهري:", lblHours: "ساعات العمل القصوى:", lblRest: "الراحة الأسبوعية:", lblProbation: "فترة التجربة:", lblBenefits: "التذاكر والإجازات:",
+                lblGuarantee: "فترة الضمان:", lblIndemnity: "مكافأة نهاية الخدمة:", lblAmenities: "المزايا الأساسية:",
+                procSecTitle: "مراحل وإجراءات التوظيف",
+                p1Title: "1. التسجيل والفرز الأولي", p1Desc: "يقدم المرشحون الهوية والمستندات التعليمية والسجل الشخصي للمراجعة والتدقيق الأولي في مكتبنا.",
+                p2Title: "2. الفحص الطبي الإلزامي", p2Desc: "يخضع المرشحون المعتمدون لفحوصات اللياقة الطبية الإلزامية عبر المراكز الطبية المعتمدة حكومياً.",
+                p3Title: "3. التدريب والتأهيل قبل المغادرة", p3Desc: "يجتاز المرشحون دورات إلزامية في الوعي الثقافي، أساسيات اللغة، والمهارات المنزلية في مراكز معتمدة.",
+                p4Title: "4. معالجة التأشيرات والعقود", p4Desc: "نتولى تصديق المستندات، ختم التأشيرات، وتوقيع عقود عمل رسمية شفافة ومسجلة قانونياً.",
+                p5Title: "5. السفر والمتابعة المستمرة", p5Desc: "حجز تذاكر الطيران والتنسيق الاستراتيجي مع الشركاء في بلد المدار لضمان وصول آمن ورعاية مستمرة.",
+                rSecTitle: "شروط المتقدمين للعمل",
+                r1: "حد السن: يجب أن يكون العمر فوق 21 سنة.", r2: "هوية إثيوبية صالحة وسجل جنائي نظيف وخالٍ من السوابق.", r3: "اجتياز الفحص الطبي الشامل المعتمد من الجهات الحكومية.", r4: "الاستعداد الكامل لحضور دورات التدريب اللغوي والثقافي.",
+                sSecTitle: "المهارات والواجبات الأساسية",
+                s1: "<strong>التدبير المنزلي:</strong> تنظيف احترافي، ترتيب غرف، وإدارة شؤون المنزل اليومية.", s2: "<strong>الغسيل والعناية:</strong> غسيل الملابس، كي احترافي، والتعامل السليم مع الأقمشة.", s3: "<strong>دعم المطبخ:</strong> المساعدة في إعداد الوجبات وتعلم المأكولات المحلية والعربية.", s4: "<strong>رعاية الأسرة:</strong> مساعدة أساسية في رعاية الأطفال ودعم روتين كبار السن المنظم.",
+                wTitle: "رعاية ودعم العمالة على مدار الساعة 24/7", wDesc: "أولويتنا المطلقة هي سلامة عمالتنا وراحتهم. نوفر قنوات اتصال مخصصة للطوارئ على مدار الساعة، وننسق باستمرار مع شركائنا في الخارج لحل أي نزاعات عمالية أو خلافات متعلقة بالأجور بسلاسة تامة.",
+                fAddr: "<strong>عنوان المكتب الرئيسي:</strong><br>أديس أبابا، بلدية أرادا، حي 02<br>إثيوبيا",
+                fLegalTitle: "الإطار القانوني", fLegalDesc: "مرخص ومعتمد بالكامل من وزارة العمل والمهارات الإثيوبية. نعمل بموجب تشريعات الاستقدام الخارجي 923/2016 و 1246/2021.",
+                fContactTitle: "الاستفسارات المباشرة"
             }
         };
 
         function toggleLanguage() {
             const lang = document.getElementById('langSelector').value;
             const data = translations[lang];
+
+            // Toggle RTL Layout for Arabic
+            if (lang === 'ar') {
+                document.body.classList.add('rtl');
+            } else {
+                document.body.classList.remove('rtl');
+            }
 
             document.getElementById('nav-logo').innerHTML = data.navLogo;
             document.getElementById('lnk-home').innerText = data.lnkHome;
@@ -589,6 +664,9 @@
             document.getElementById('t3-desc').innerText = data.t3Desc;
 
             document.getElementById('dest-sec-title').innerText = data.destSecTitle;
+            document.getElementById('d1-country').innerText = data.d1Country;
+            document.getElementById('d2-country').innerText = data.d2Country;
+
             document.querySelectorAll('.lbl-salary').forEach(el => el.innerText = data.lblSalary);
             document.querySelectorAll('.lbl-hours').forEach(el => el.innerText = data.lblHours);
             document.querySelectorAll('.lbl-rest').forEach(el => el.innerText = data.lblRest);
