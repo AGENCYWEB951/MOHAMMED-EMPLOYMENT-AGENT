@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -213,7 +214,7 @@
         }
         .dest-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
         .dest-img {
-            height: 250px;
+            height: 200px;
             background-size: cover;
             background-position: center;
         }
@@ -429,7 +430,6 @@
             <a href="#home" id="lnk-home">Home</a>
             <a href="#destinations" id="lnk-dest">Destinations</a>
             <a href="#process" id="lnk-proc">Our Process</a>
-            <a href="#showcase" id="lnk-show">Workforce Gallery</a>
             <a href="#register" id="lnk-reg-nav">Apply Online</a>
             <a href="#requirements" id="lnk-req">Requirements</a>
         </nav>
@@ -529,40 +529,6 @@
                 <div class="content">
                     <h3 id="p4-title">Step 4. Pre-Departure Briefing</h3>
                     <p id="p4-desc">Orientation on the destination country's culture, labor laws, and workplace expectations before deployment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Skills Showcase Section (NEW) -->
-    <section id="showcase" style="background-color: #eef3f1;">
-        <div class="section-title">
-            <h2 id="show-sec-title">Professional Training & Performance Showcase</h2>
-            <div></div>
-        </div>
-        <div class="dest-grid">
-            <!-- Housekeeping Card -->
-            <div class="dest-card animate-up">
-                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="dest-info" style="text-align: center;">
-                    <h3 id="s-show-1"><i class="fa-solid fa-broom"></i> Housekeeping & Cleaning</h3>
-                    <p id="d-show-1" style="font-size: 0.95rem; color: #555; margin-top: 10px; line-height: 1.5;">Trained in deep room management, modern sanitation tools, and structuring elegant household environments elegantly.</p>
-                </div>
-            </div>
-            <!-- Laundry & Ironing Card -->
-            <div class="dest-card animate-up">
-                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1545173168-9f1947eebd01?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="dest-info" style="text-align: center;">
-                    <h3 id="s-show-2"><i class="fa-solid fa-shirt"></i> Laundry & Clothes Care</h3>
-                    <p id="d-show-2" style="font-size: 0.95rem; color: #555; margin-top: 10px; line-height: 1.5;">Proficient in dedicated garment care, professional steam ironing, delicate fabrics, and meticulous wardrobe arrangements.</p>
-                </div>
-            </div>
-            <!-- Cooking & Culinary Support Card -->
-            <div class="dest-card animate-up">
-                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="dest-info" style="text-align: center;">
-                    <h3 id="s-show-3"><i class="fa-solid fa-utensils"></i> Culinary & Meal Support</h3>
-                    <p id="d-show-3" style="font-size: 0.95rem; color: #555; margin-top: 10px; line-height: 1.5;">Skilled in complete kitchen hygiene, advanced meal preparation support, and eager learning of traditional Arabic cuisines.</p>
                 </div>
             </div>
         </div>
@@ -692,7 +658,7 @@
         const translations = {
             en: {
                 navLogo: "MOHAMMED<span> EMPLOYMENT</span>",
-                lnkHome: "Home", lnkDest: "Destinations", lnkProc: "Our Process", lnkRegNav: "Apply Online", lnkReq: "Requirements", lnkShow: "Workforce Gallery",
+                lnkHome: "Home", lnkDest: "Destinations", lnkProc: "Our Process", lnkRegNav: "Apply Online", lnkReq: "Requirements",
                 heroBadge: "Licensed Private Employment Agency",
                 heroTitle: "Safe, Legal & Transparent<br>Overseas Recruitment",
                 heroDesc: "Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.",
@@ -709,10 +675,6 @@
                 p2Title: "Step 2. Vetting & Interviewing", p2Desc: "Our team conducts initial screening, skill assessments, and background verification.",
                 p3Title: "Step 3. Documentation & Visa Processing", p3Desc: "We handle medical clearances, embassy processing, and legal contract sign-offs.",
                 p4Title: "Step 4. Pre-Departure Briefing", p4Desc: "Orientation on the destination country's culture, labor laws, and workplace expectations before deployment.",
-                showSecTitle: "Professional Training & Performance Showcase",
-                sShow1: "<i class='fa-solid fa-broom'></i> Housekeeping & Cleaning", dShow1: "Trained in deep room management, modern sanitation tools, and structuring elegant household environments elegantly.",
-                sShow2: "<i class='fa-solid fa-shirt'></i> Laundry & Clothes Care", dShow2: "Proficient in dedicated garment care, professional steam ironing, delicate fabrics, and meticulous wardrobe arrangements.",
-                sShow3: "<i class='fa-solid fa-utensils'></i> Culinary & Meal Support", dShow3: "Skilled in complete kitchen hygiene, advanced meal preparation support, and eager learning of traditional Arabic cuisines.",
                 regSecTitle: "Worker Online Registration",
                 lblFname: "Full Name (English)", lblPhone: "Phone Number", lblTrade: "Preferred Job Role", lblPassportNum: "Passport Number",
                 lblFileCv: "Upload CV / Bio-data", lblFilePass: "Upload Passport Copy", lblFileCert: "Upload Essential Trade Credentials / Certificates",
@@ -729,7 +691,7 @@
             },
             am: {
                 navLogo: "መሀመድ<span> የውጪ ሥራ ሥምሪት</span>",
-                lnkHome: "ዋና ገጽ", lnkDest: "የሚላኩበት አገራት", lnkProc: "የአሠራር ሂደት", lnkRegNav: "በኢንተርኔት ያመልክቱ", lnkReq: "መስፈርቶች", lnkShow: "የሠራተኞች ጋለሪ",
+                lnkHome: "ዋና ገጽ", lnkDest: "የሚላኩበት አገራት", lnkProc: "የአሠራር ሂደት", lnkRegNav: "በኢንተርኔት ያመልክቱ", lnkReq: "መስፈርቶች",
                 heroBadge: "ሕጋዊ የግል ሥራና ሠራተኛ አገናኝ ኤጀንሲ",
                 heroTitle: "አስተማማኝ፣ ሕጋዊ እና ግልጽ<br>የውጪ አገር ሥራ ሥምሪት",
                 heroDesc: "ብቃት ያላቸውን ኢትዮጵያውያን በባህረ ሰላጤው አገራት ካሉ ታዋቂ አ नियोक्ताዎች ጋር በሚኒስቴር መሥሪያ ቤት ሕጎች መሠረት እናገናኛለን።",
@@ -746,27 +708,23 @@
                 p2Title: "ደረጃ 2. መገምገም እና ቃለ መጠይቅ", p2Desc: "የእኛ የባለሙያዎች ቡድን የመጀመሪያ ደረጃ ማጣራት، የክህلوት ምዘና እና የጀርባ ታሪክ ማረጋገጫ ያካሂዳል።",
                 p3Title: "ደረጃ 3. ሰነድ እና የቪዛ ሂደት", p3Desc: "የሕክምና ፈቃዶችን، የኤምባሲ ሂደቶችን እና ሕጋዊ የሥራ ውል ፊርማዎችን እናስተናግዳለን።",
                 p4Title: "ደረጃ 4. ከጉዞ በፊት ገለጻ", p4Desc: "ከመሰማራታቸው በፊት ስለ መድረሻው ሀገር ባህል، የعمالና የሥራ ሕጎች እና የሥра ቦታ የሚጠበቁ ነገሮች ላይ ገለጻ ይሰጣል።",
-                showSecTitle: "የባለሙያ ስልጠና እና የክህሎት ማሳያ",
-                sShow1: "<i class='fa-solid fa-broom'></i> የቤት አያያዝ እና ጽዳት", dShow1: "በዘመናዊ የጽዳት መሣሪያዎች አጠቃቀም፣ ክፍል ዝግጅት እና ንፅህና አጠባበቅ ላይ የሰለጠኑ።",
-                sShow2: "<i class='fa-solid fa-shirt'></i> ልብስ ማጠብ እና መተኮስ", dShow2: "የተለያዩ ጨርቆችን በጥንቃቄ ማጠብ፣ በባለሙያ የእንፋሎት መተኮስ እና ልብሶችን በስርአት ማደራጀት የሚችሉ።",
-                sShow3: "<i class='fa-solid fa-utensils'></i> የምግብ ዝግጅት ድጋፍ", dShow3: "የኩሽና ንጽሕና አጠባበቅ፣ የምግብ ዝግጅት እገዛ እና የአረብ አገራት ባህላዊ ምግቦችን በፍጥነት መልመድ የሚችሉ።",
                 regSecTitle: "የሠራተኞች የመስመር ላይ ምዝገባ",
                 lblFname: "முழு ስም (በእንግሊዘኛ)", lblPhone: "የስልክ ቁጥር", lblTrade: "የሚፈልጉት የሥራ ዓይነት", lblPassportNum: "የፓስፖርት ቁጥር",
                 lblFileCv: "የህይወት ታሪክ (CV) ያያይዙ", lblFilePass: "የፓስፖርት ኮፒ ያያይዙ", lblFileCert: "የሙያ ማረጋገጫ ወይም ምስክር ወረቀት ያያይዙ",
-                optHkeep: "የቤት አያያዝ እና ጽዳት", optLaund: "ልብስ ማጠብ እና መተኮስ", optCook: "የምግብ ዝግጅት እገዛ", optChild: "የሕፃናት ወይም አረጋውያን እንክብካቤ",
+                optHkeep: "የቤት አያያዝ እና ጽዳት", optLaund: "ልብስ ማጠብ እና መተኮስ", optCook: "የምግብ ዝግጅት እገዛ", optChild: "የሕፃናት ወይም አረጋውያን እንክብكاቤ",
                 btnSubmitText: "<i class='fa-solid fa-paper-plane'></i> ማመልከቻውን በደህና ይላኩ",
-                rSecTitle: "ለዕጩዎች የሚያስፈልጉ መስፈርቶች",
-                r1: "የዕድሜ ገደብ: ከ21 ዓመት በላይ መሆን አለበት።", r2: "ሕጋዊ የኢትዮጵያ መታወቂያ እና ከወንጀል ነፃ የሆኑ።", r3: "በመንግስት የተፈቀደ የጤና ምርመራ ያጠናቀቁ።", r4: "የቋንቋ እና የባህል ስልጠና ለመውሰድ ፈቃደኛ መሆን።",
+                rSecTitle: "ለዕጩዎች የሚያسፈልጉ መስፈርቶች",
+                r1: "የዕድሜ ገደብ: ከ21 ዓመት በላይ መሆን አለበት።", r2: "ሕጋዊ የኢትዮጵያ መታወቂያ እና ከወንጀል ነፃ የሆኑ።", r3: "በمንግስት የተፈቀደ የጤና ምርመራ ያጠናቀቁ።", r4: "የቋንቋ እና የባህል ስልጠና ለመውሰድ ፈቃደኛ መሆን።",
                 sSecTitle: "ዋና ዋና ክህሎቶች እና ተግባራት",
-                s1: "<strong>የቤት አያያዝ:</strong> ጥራትን የጠበቀ ጽዳት፣ ማደራጀት እና የክፍል አስተዳደር ድጋፍ።", s2: "<strong>ልብስ ማጠብ እና መተኮስ:</strong> ማጠብ፣ በባለሙያ መተኮስ እና ልብሶችን በአግባቡ መያዝ።", s3: "<strong>የምግብ ዝግጅት ድጋፍ:</strong> የምግብ ዝግጅት እገዛ እና የአረብ ወይም የአካባቢውን ምግቦች መልመድ።", s4: "<strong>የቤተሰብ ድጋፍ:</strong> መሠረታዊ የሕፃናት እንክብكاቤ እና የተዋቀሩ የአረጋውያን ድጋፍ።",
-                wTitle: "የ24/7 የሠራተኞች ደኅንነት እና ድጋፍ", wDesc: "ፍጹም ቅድሚያ የምንሰጠው ጉዳይ የሠራተኞቻችን ደኅንነት እና ደህንነት ነው። ማንኛውንም የደመወዝ ወይም የሥራ ቦታ አለመግባባቶች በተረጋጋ ሁኔታ ለመፍታት ንቁ የአደጋ ጊዜ የመገናኛ መስመሮችን እንይዛለን እንዲሁም ከውጭ አጋሮች ጋር ያለማቋረጥ እናስተባብራለን።",
-                fAddr: "<strong>የቢሮ አድራሻ:</strong><br>አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02<br>ኢትዮጵያ",
+                s1: "<strong>የቤት አያያዝ:</strong> ጥራትን የጠበቀ ጽዳት፣ ማደራጀት እና የክፍል አስተዳደር ድጋፍ።", s2: "<strong>ልብስ ማጠብ እና መተኮስ:</strong> ማጠብ፣ በባለሙያ መተኮስ እና ልብሶችን በአግባቡ መያዝ።", s3: "<strong>የምግብ ዝግጅት ድጋف:</strong> የምግብ ዝግጅት እገዛ እና የአረብ ወይም የአካባቢውን ምግቦች መልመድ።", s4: "<strong>የቤተሰብ ድጋፍ:</strong> መሠረታዊ የሕፃናት እንክብكاቤ እና የተዋቀሩ የአረጋውያን ድጋፍ።",
+                wTitle: "የ24/7 የሠራተኞች ደኅንነት እና ድጋፍ", wDesc: "ፍጹም ቅдሚያ የምንሰጠው ጉዳይ የሠራተኞቻችን ደኅንነት እና ደህንነት ነው። ማንኛውንም የደመወዝ ወይም የሥራ ቦታ አለመግባባቶች በተረጋጋ ሁኔታ ለመፍታት ንቁ የአደጋ ጊዜ የመገናኛ መስመሮችን እንይዛለን እንዲሁም ከውጭ አጋሮች ጋር ያለማቋረጥ እናስተባብراለን።",
+                fAddr: "<strong>የቢሮ አድራሻ:</strong><br>አዲስ አበባ፣ አራዳ ክፍለ ከተማ، ወረዳ 02<br>ኢትዮጵያ",
                 fLegalTitle: "ሕጋዊ ማዕቀፍ", fLegalDesc: "በኢትዮጵያ የሥራና ክህሎት ሚኒስቴር ሙሉ በሙሉ እውቅና የተሰጠው። በውጭ አገር የሥራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የሚሠራ።",
                 fContactTitle: "ቀጥታ ጥያቄዎች"
             },
             ar: {
                 navLogo: "مكتب محمد<span> للتوظيف الخارجي</span>",
-                lnkHome: "الرئيسية", lnkDest: "الوجهات", lnkProc: "مسار العمل", lnkRegNav: "تسجيل المتقدمين", lnkReq: "الشروط", lnkShow: "معرض العمالة",
+                lnkHome: "الرئيسية", lnkDest: "الوجهات", lnkProc: "مسار العمل", lnkRegNav: "تسجيل المتقدمين", lnkReq: "الشروط",
                 heroBadge: "وكالة توظيف خاصة مرخصة رسمياً",
                 heroTitle: "توظيف خارجي آمن،<br>قانوني وشفاف بالكامل",
                 heroDesc: "نربط الكفاءات الإثيوبية المؤهلة بأرقى العائلات في دول الخليج، بما يتوافق تماماً مع القوانين واللوائح الوزارية الرسمية.",
@@ -783,10 +741,6 @@
                 p2Title: "الخطوة 2. التدقيق والمقابلات", p2Desc: "يقوم فريقنا بإجراء الفرز الأولي، تقييم المهارات، والتحقق من الخلفية والبيانات الشخصية.",
                 p3Title: "الخطوة 3. توثيق المستندات ومعاملات التأشيرة", p3Desc: "نتولى إنهاء التصاريح الطبية، الإجراءات القنصلية مع السفارات، وتوقيع عقود العمل القانونية الرسمية.",
                 p4Title: "الخطوة 4. توجيه وإحاطة ما قبل المغادرة", p4Desc: "إعطاء دورة توجيهية حول ثقافة بلد المقصد، قوانين العمل، وتوقعات بيئة العمل قبل السفر والالتحاق بالوظيفة.",
-                showSecTitle: "عرض التدريب المهني والأداء المتميز للعمالة",
-                sShow1: "<i class='fa-solid fa-broom'></i> تدبير منزلي وتنظيف", dShow1: "مدربات على إدارة الغرف العميقة، استخدام أدوات التعقيم الحديثة، وتنظيم البيئات المنزلية الراقية بكفاءة.",
-                sShow2: "<i class='fa-solid fa-shirt'></i> غسيل وكي الملابس", dShow2: "مهارة عالية في العناية بالملابس، الكي بالبخار الاحترافي، التعامل مع الأقمشة الرقيقة وتنسيق الخزائن بشكل منظم.",
-                sShow3: "<i class='fa-solid fa-utensils'></i> دعم المطبخ والطهي", dShow3: "إتقان تام لنظافة المطبخ، المساعدة المتقدمة في إعداد الوجبات، والاستعداد السريع لتعلم المأكولات العربية التقليدية.",
                 regSecTitle: "تسجيل العمالة عبر الإنترنت",
                 lblFname: "الاسم الكامل (بالإنجليزي)", lblPhone: "رقم الهاتف", lblTrade: "نوع الوظيفة المطلوبة", lblPassportNum: "رقم جواز السفر",
                 lblFileCv: "ارفاق السيرة الذاتية (CV)", lblFilePass: "ارفاق نسخة جواز السفر", lblFileCert: "ارفاق المؤهلات المهنية / الشهادات",
@@ -820,7 +774,6 @@
             document.getElementById('lnk-proc').innerText = data.lnkProc;
             document.getElementById('lnk-reg-nav').innerText = data.lnkRegNav;
             document.getElementById('lnk-req').innerText = data.lnkReq;
-            document.getElementById('lnk-show').innerText = data.lnkShow;
             
             document.getElementById('hero-badge').innerText = data.heroBadge;
             document.getElementById('hero-title').innerHTML = data.heroTitle;
@@ -857,15 +810,6 @@
             document.getElementById('p3-desc').innerText = data.p3Desc;
             document.getElementById('p4-title').innerText = data.p4Title;
             document.getElementById('p4-desc').innerText = data.p4Desc;
-
-            // Showcase Translation Links
-            document.getElementById('show-sec-title').innerText = data.showSecTitle;
-            document.getElementById('s-show-1').innerHTML = data.sShow1;
-            document.getElementById('d-show-1').innerText = data.dShow1;
-            document.getElementById('s-show-2').innerHTML = data.sShow2;
-            document.getElementById('d-show-2').innerText = data.dShow2;
-            document.getElementById('s-show-3').innerHTML = data.sShow3;
-            document.getElementById('d-show-3').innerText = data.dShow3;
 
             // Form Fields Translations
             document.getElementById('reg-sec-title').innerText = data.regSecTitle;
@@ -904,3 +848,5 @@
     </script>
 </body>
 </html>
+
+```
