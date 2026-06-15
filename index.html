@@ -250,6 +250,78 @@
         }
         .content h3 { color: var(--primary); margin-bottom: 5px; }
 
+        /* --- Registration Form Section --- */
+        .registration-section {
+            background: #ffffff;
+        }
+        .reg-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background: var(--white);
+            outline: none;
+            transition: var(--transition);
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 58, 47, 0.1);
+        }
+        .form-group input[type="file"] {
+            padding: 8px;
+            background: transparent;
+            border: 2px dashed #bbb;
+            cursor: pointer;
+        }
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-submit:hover {
+            background: #06241d;
+            letter-spacing: 0.5px;
+        }
+
         /* --- Requirements & Skills --- */
         .req-skills-grid {
             display: grid;
@@ -357,8 +429,8 @@
             <a href="#home" id="lnk-home">Home</a>
             <a href="#destinations" id="lnk-dest">Destinations</a>
             <a href="#process" id="lnk-proc">Our Process</a>
+            <a href="#register" id="lnk-reg-nav">Apply Online</a>
             <a href="#requirements" id="lnk-req">Requirements</a>
-            <a href="#contact" id="lnk-cont">Contact</a>
         </nav>
     </header>
 
@@ -368,7 +440,7 @@
         <h2 id="hero-title">Safe, Legal & Transparent<br>Overseas Recruitment</h2>
         <p id="hero-desc">Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.</p>
         <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary" id="hero-btn1"><i class="fa-brands fa-whatsapp"></i> Apply Now</a>
+            <a href="#register" class="btn btn-primary" id="hero-btn1"><i class="fa-solid fa-file-signature"></i> Apply Now</a>
             <a href="#process" class="btn btn-secondary" id="hero-btn2">Learn Our Process</a>
         </div>
     </section>
@@ -461,6 +533,56 @@
         </div>
     </section>
 
+    <!-- Online Registration Section for Applying Workers -->
+    <section class="registration-section" id="register">
+        <div class="section-title">
+            <h2 id="reg-sec-title">Worker Online Registration</h2>
+            <div></div>
+        </div>
+        <div class="reg-container animate-up">
+            <form id="workerForm" onsubmit="event.preventDefault(); alert('Registration submitted successfully!');">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label id="lbl-fname" for="fname">Full Name (English)</label>
+                        <input type="text" id="fname" required placeholder="As shown on Passport">
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-phone" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="+251...">
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-trade" for="trade">Preferred Job Role</label>
+                        <select id="trade" required>
+                            <option value="housekeeping" id="opt-hkeep">Housekeeping & Cleaning</option>
+                            <option value="laundry" id="opt-laund">Laundry & Clothes Care</option>
+                            <option value="cooking" id="opt-cook">Cooking Support</option>
+                            <option value="childcare" id="opt-child">Child / Elderly Care</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-passport-num" for="passnum">Passport Number</label>
+                        <input type="text" id="passnum" required placeholder="EP.......">
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-file-cv" for="file-cv">Upload CV / Bio-data</label>
+                        <input type="file" id="file-cv" accept=".pdf,.doc,.docx,.jpg,.png" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-file-pass" for="file-pass">Upload Passport Copy</label>
+                        <input type="file" id="file-pass" accept=".pdf,.jpg,.png" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-file-cert" for="file-cert">Upload Essential Trade Credentials / Certificates</label>
+                    <input type="file" id="file-cert" accept=".pdf,.jpg,.png" style="margin-bottom: 20px;">
+                </div>
+                <button type="submit" class="btn-submit" id="btn-submit-text">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Application Securely
+                </button>
+            </form>
+        </div>
+    </section>
+
     <!-- Requirements & Skills Section -->
     <section id="requirements" style="background-color: #eef3f1;">
         <div class="req-skills-grid">
@@ -535,11 +657,11 @@
         const translations = {
             en: {
                 navLogo: "MOHAMMED<span> EMPLOYMENT</span>",
-                lnkHome: "Home", lnkDest: "Destinations", lnkProc: "Our Process", lnkReq: "Requirements", lnkCont: "Contact",
+                lnkHome: "Home", lnkDest: "Destinations", lnkProc: "Our Process", lnkRegNav: "Apply Online", lnkReq: "Requirements",
                 heroBadge: "Licensed Private Employment Agency",
                 heroTitle: "Safe, Legal & Transparent<br>Overseas Recruitment",
                 heroDesc: "Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.",
-                heroBtn1: "<i class='fa-brands fa-whatsapp'></i> Apply Now", heroBtn2: "Learn Our Process",
+                heroBtn1: "<i class='fa-solid fa-file-signature'></i> Apply Now", heroBtn2: "Learn Our Process",
                 t1Title: "<i class='fa-solid fa-shield-halved'></i> Legal Compliance", t1Desc: "Proclamation No. 923/2016 & 1246/2021",
                 t2Title: "<i class='fa-solid fa-building'></i> Registered Agency", t2Desc: "MOHAMMED EMPLOYMENT AGENT",
                 t3Title: "<i class='fa-solid fa-user-tie'></i> Agency Manager", t3Desc: "Mr. Mohammed Ebrahim Oumer",
@@ -552,6 +674,11 @@
                 p2Title: "Step 2. Vetting & Interviewing", p2Desc: "Our team conducts initial screening, skill assessments, and background verification.",
                 p3Title: "Step 3. Documentation & Visa Processing", p3Desc: "We handle medical clearances, embassy processing, and legal contract sign-offs.",
                 p4Title: "Step 4. Pre-Departure Briefing", p4Desc: "Orientation on the destination country's culture, labor laws, and workplace expectations before deployment.",
+                regSecTitle: "Worker Online Registration",
+                lblFname: "Full Name (English)", lblPhone: "Phone Number", lblTrade: "Preferred Job Role", lblPassportNum: "Passport Number",
+                lblFileCv: "Upload CV / Bio-data", lblFilePass: "Upload Passport Copy", lblFileCert: "Upload Essential Trade Credentials / Certificates",
+                optHkeep: "Housekeeping & Cleaning", optLaund: "Laundry & Clothes Care", optCook: "Cooking Support", optChild: "Child / Elderly Care",
+                btnSubmitText: "<i class='fa-solid fa-paper-plane'></i> Submit Application Securely",
                 rSecTitle: "Candidate Requirements",
                 r1: "Age Limit: Must be above 21 years old.", r2: "Valid Ethiopian Identification and Clean Background.", r3: "Completion of authorized Government health screening.", r4: "Willingness to attend language and cultural training.",
                 sSecTitle: "Core Skills & Duties",
@@ -563,39 +690,44 @@
             },
             am: {
                 navLogo: "መሀመድ<span> የውጪ ሥራ ሥምሪት</span>",
-                lnkHome: "ዋና ገጽ", lnkDest: "የሚላኩበት አገራት", lnkProc: "የአሠራር ሂደት", lnkReq: "መስፈርቶች", lnkCont: "ያግኙን",
+                lnkHome: "ዋና ገጽ", lnkDest: "የሚላኩበት አገራት", lnkProc: "የአሠራር ሂደት", lnkRegNav: "በኢንተርኔት ያመልክቱ", lnkReq: "መስፈርቶች",
                 heroBadge: "ሕጋዊ የግል ሥራና ሠራተኛ አገናኝ ኤጀንሲ",
                 heroTitle: "አስተማማኝ፣ ሕጋዊ እና ግልጽ<br>የውጪ አገር ሥራ ሥምሪት",
                 heroDesc: "ብቃት ያላቸውን ኢትዮጵያውያን በባህረ ሰላጤው አገራት ካሉ ታዋቂ አ नियोक्ताዎች ጋር በሚኒስቴር መሥሪያ ቤት ሕጎች መሠረት እናገናኛለን።",
-                heroBtn1: "<i class='fa-brands fa-whatsapp'></i> አሁኑኑ ያመልክቱ", heroBtn2: "የአሠራር ሂደቱን ይመልከቱ",
+                heroBtn1: "<i class='fa-solid fa-file-signature'></i> አሁኑኑ ያመልክቱ", heroBtn2: "የአሠራር ሂደቱን ይመልከቱ",
                 t1Title: "<i class='fa-solid fa-shield-halved'></i> ሕጋዊ ተገዢነት", t1Desc: "በአዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የተሰጠ",
                 t2Title: "<i class='fa-solid fa-building'></i> የድርጅቱ ስም", t2Desc: "መሀመድ ኢብራሂም ኡመር የውጪ አገር ሥራ አገናኝ",
-                t3Title: "<i class='fa-solid fa-user-tie'></i> የሥራ አስኪያጅ ስም", t3Desc: "አቶ መሀመድ አይብራሂም ኡመር",
+                t3Title: "<i class='fa-solid fa-user-tie'></i> የሥራ አስኪያጅ ስም", t3Desc: "አቶ መሀመድ አይብраሂም ኡመር",
                 destSecTitle: "የሥራ መዳረሻ አገራት",
                 d1Country: "🇸🇦 المملكة العربية السعودية", d2Country: "🇰🇼 دولة الكويت",
                 lblSalary: "ወርሃዊ ደመወዝ:", lblHours: "ከፍተኛ የሥራ ሰዓት:", lblRest: "የሳምንት ዕረፍት:", lblProbation: "የሙከራ ጊዜ:", lblBenefits: "ትኬት እና ፈቃድ:",
-                lblGuarantee: "የዋስትና ጊዜ:", lblIndemnity: "የአገልግሎት ማጠናቀቂያ ክፍያ:", lblAmenities: "መሰረታዊ ፍላጎቶች:",
+                lblGuarantee: "የዋስትና ጊዜ:", lblIndemnity: "የአገልግሎት ማጠናቀቂያ ክፍያ:", lblAmenities: "مሰረታዊ ፍላጎቶች:",
                 procSecTitle: "የዕጩዎች የኢንተርኔት ጉዞ",
                 p1Title: "ደረጃ 1. የኢንተርኔት ምዝገባ", p1Desc: "ተወዳዳሪዎች የህይወት ታሪካቸውን (CV)፣ ፓስፖርታቸውን እና አስፈላጊ የሙያ ምስክር ወረቀቶቻቸውን በቀላል እና ደህንነቱ በተጠበቀ ቅጽ ያቀርባሉ።",
-                p2Title: "ደረጃ 2. መገምገም እና ቃለ መጠይቅ", p2Desc: "የእኛ የባለሙያዎች ቡድን የመጀመሪያ ደረጃ ማጣራት፣ የክህሎት ምዘና እና የጀርባ ታሪክ ማረጋገጫ ያካሂዳል።",
-                p3Title: "ደረጃ 3. ሰነድ እና የቪዛ ሂደት", p3Desc: "የሕክምና ፈቃዶችን፣ የኤምባሲ ሂደቶችን እና ሕጋዊ የሥራ ውል ፊርማዎችን እናስተናግዳለን።",
-                p4Title: "ደረጃ 4. ከጉዞ በፊት ገለጻ", p4Desc: "ከመሰማራታቸው በፊት ስለ መድረሻው ሀገር ባህል፣ የعمالና የሥራ ሕጎች እና የሥራ ቦታ የሚጠበቁ ነገሮች ላይ ገለጻ ይሰጣል።",
-                rSecTitle: "ለዕጩዎች የሚያስፈልጉ መስፈርቶች",
-                r1: "የዕድሜ ገደብ: ከ21 ዓመት በላይ መሆን አለበት።", r2: "ሕጋዊ የኢትዮጵያ መታወቂያ እና ከወንጀል ነፃ የሆኑ።", r3: "በመንግስት የተፈቀደ የጤና ምርመራ ያጠናቀቁ።", r4: "የቋንቋ እና የባህል ስልጠና ለመውሰድ ፈቃደኛ መሆን።",
+                p2Title: "ደረጃ 2. መገምገም እና ቃለ መጠይቅ", p2Desc: "የእኛ የባለሙያዎች ቡድን የመጀመሪያ ደረጃ ማጣራት، የክህلوት ምዘና እና የጀርባ ታሪክ ማረጋገጫ ያካሂዳል።",
+                p3Title: "ደረጃ 3. ሰነድ እና የቪዛ ሂደት", p3Desc: "የሕክምና ፈቃዶችን، የኤምባሲ ሂደቶችን እና ሕጋዊ የሥራ ውል ፊርማዎችን እናስተናግዳለን።",
+                p4Title: "ደረጃ 4. ከጉዞ በፊት ገለጻ", p4Desc: "ከመሰማራታቸው በፊት ስለ መድረሻው ሀገር ባህል، የعمالና የሥራ ሕጎች እና የሥра ቦታ የሚጠበቁ ነገሮች ላይ ገለጻ ይሰጣል።",
+                regSecTitle: "የሠራተኞች የመስመር ላይ ምዝገባ",
+                lblFname: "முழு ስም (በእንግሊዘኛ)", lblPhone: "የስልክ ቁጥር", lblTrade: "የሚፈልጉት የሥራ ዓይነት", lblPassportNum: "የፓስፖርት ቁጥር",
+                lblFileCv: "የህይወት ታሪክ (CV) ያያይዙ", lblFilePass: "የፓስፖርት ኮፒ ያያይዙ", lblFileCert: "የሙያ ማረጋገጫ ወይም ምስክር ወረቀት ያያይዙ",
+                optHkeep: "የቤት አያያዝ እና ጽዳት", optLaund: "ልብስ ማጠብ እና መተኮስ", optCook: "የምግብ ዝግጅት እገዛ", optChild: "የሕፃናት ወይም አረጋውያን እንክብكاቤ",
+                btnSubmitText: "<i class='fa-solid fa-paper-plane'></i> ማመልከቻውን በደህና ይላኩ",
+                rSecTitle: "ለዕጩዎች የሚያسፈልጉ መስፈርቶች",
+                r1: "የዕድሜ ገደብ: ከ21 ዓመት በላይ መሆን አለበት።", r2: "ሕጋዊ የኢትዮጵያ መታወቂያ እና ከወንጀል ነፃ የሆኑ።", r3: "በمንግስት የተፈቀደ የጤና ምርመራ ያጠናቀቁ።", r4: "የቋንቋ እና የባህል ስልጠና ለመውሰድ ፈቃደኛ መሆን።",
                 sSecTitle: "ዋና ዋና ክህሎቶች እና ተግባራት",
-                s1: "<strong>የቤት አያያዝ:</strong> ጥራትን የጠበቀ ጽዳት፣ ማደራጀት እና የክፍል አስተዳደር ድጋፍ።", s2: "<strong>ልብስ ማጠብ እና መተኮስ:</strong> ማጠብ፣ በባለሙያ መተኮስ እና ልብሶችን በአግባቡ መያዝ።", s3: "<strong>የምግብ ዝግጅት ድጋፍ:</strong> የምግብ ዝግጅት እገዛ እና የአረብ ወይም የአካባቢውን ምግቦች መልመድ።", s4: "<strong>የቤተሰብ ድጋፍ:</strong> መሠረታዊ የሕፃናት እንክብካቤ እና የተዋቀሩ የአረጋውያን ድጋፍ።",
-                wTitle: "የ24/7 የሠራተኞች ደኅንነት እና ድጋፍ", wDesc: "ፍጹም ቅድሚያ የምንሰጠو ጉዳይ የሠራተኞቻችን ደኅንነት እና ደህንነት ነው። ማንኛውንም የደመወዝ ወይም የሥራ ቦታ አለመግባባቶች በተረጋጋ ሁኔታ ለመፍታት ንቁ የአደጋ ጊዜ የመገናኛ መስመሮችን እንይዛለን እንዲሁም ከውጭ አጋሮች ጋር ያለማቋረጥ እናስተባብራለን።",
-                fAddr: "<strong>የቢሮ አድራሻ:</strong><br>አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02<br>ኢትዮጵያ",
-                fLegalTitle: "ሕጋዊ ማዕቀፍ", fLegalDesc: "በኢትዮጵያ የሥራና ክህلوት ሚኒስቴር ሙሉ በሙሉ እውቅና የተሰጠው። በውጭ አገር የሥራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የሚሠራ።",
+                s1: "<strong>የቤት አያያዝ:</strong> ጥራትን የጠበቀ ጽዳት፣ ማደራጀት እና የክፍል አስተዳደር ድጋፍ።", s2: "<strong>ልብስ ማጠብ እና መተኮስ:</strong> ማጠብ፣ በባለሙያ መተኮስ እና ልብሶችን በአግባቡ መያዝ።", s3: "<strong>የምግብ ዝግጅት ድጋف:</strong> የምግብ ዝግጅት እገዛ እና የአረብ ወይም የአካባቢውን ምግቦች መልመድ።", s4: "<strong>የቤተሰብ ድጋፍ:</strong> መሠረታዊ የሕፃናት እንክብكاቤ እና የተዋቀሩ የአረጋውያን ድጋፍ።",
+                wTitle: "የ24/7 የሠራተኞች ደኅንነት እና ድጋፍ", wDesc: "ፍጹም ቅдሚያ የምንሰጠው ጉዳይ የሠራተኞቻችን ደኅንነት እና ደህንነት ነው። ማንኛውንም የደመወዝ ወይም የሥራ ቦታ አለመግባባቶች በተረጋጋ ሁኔታ ለመፍታት ንቁ የአደጋ ጊዜ የመገናኛ መስመሮችን እንይዛለን እንዲሁም ከውጭ አጋሮች ጋር ያለማቋረጥ እናስተባብراለን።",
+                fAddr: "<strong>የቢሮ አድራሻ:</strong><br>አዲስ አበባ፣ አራዳ ክፍለ ከተማ، ወረዳ 02<br>ኢትዮጵያ",
+                fLegalTitle: "ሕጋዊ ማዕቀፍ", fLegalDesc: "በኢትዮጵያ የሥራና ክህሎት ሚኒስቴር ሙሉ በሙሉ እውቅና የተሰጠው። በውጭ አገር የሥራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የሚሠራ።",
                 fContactTitle: "ቀጥታ ጥያቄዎች"
             },
             ar: {
                 navLogo: "مكتب محمد<span> للتوظيف الخارجي</span>",
-                lnkHome: "الرئيسية", lnkDest: "الوجهات", lnkProc: "مسار العمل", lnkReq: "الشروط", lnkCont: "اتصل بنا",
+                lnkHome: "الرئيسية", lnkDest: "الوجهات", lnkProc: "مسار العمل", lnkRegNav: "تسجيل المتقدمين", lnkReq: "الشروط",
                 heroBadge: "وكالة توظيف خاصة مرخصة رسمياً",
                 heroTitle: "توظيف خارجي آمن،<br>قانوني وشفاف بالكامل",
                 heroDesc: "نربط الكفاءات الإثيوبية المؤهلة بأرقى العائلات في دول الخليج، بما يتوافق تماماً مع القوانين واللوائح الوزارية الرسمية.",
-                heroBtn1: "<i class='fa-brands fa-whatsapp'></i> قدم طلبك الآن", heroBtn2: "اكتشف آلية عملنا",
+                heroBtn1: "<i class='fa-solid fa-file-signature'></i> قدم طلبك الآن", heroBtn2: "اكتشف آلية عملنا",
                 t1Title: "<i class='fa-solid fa-shield-halved'></i> الامتثال القانوني", t1Desc: "بموجب المرسوم الحكومي رقم 923/2016 و 1246/2021",
                 t2Title: "<i class='fa-solid fa-building'></i> اسم الوكالة", t2Desc: "مكتب محمد إبراهيم عمر للاستقدام",
                 t3Title: "<i class='fa-solid fa-user-tie'></i> المدير العام", t3Desc: "السيد محمد إبراهيم عمر",
@@ -608,6 +740,11 @@
                 p2Title: "الخطوة 2. التدقيق والمقابلات", p2Desc: "يقوم فريقنا بإجراء الفرز الأولي، تقييم المهارات، والتحقق من الخلفية والبيانات الشخصية.",
                 p3Title: "الخطوة 3. توثيق المستندات ومعاملات التأشيرة", p3Desc: "نتولى إنهاء التصاريح الطبية، الإجراءات القنصلية مع السفارات، وتوقيع عقود العمل القانونية الرسمية.",
                 p4Title: "الخطوة 4. توجيه وإحاطة ما قبل المغادرة", p4Desc: "إعطاء دورة توجيهية حول ثقافة بلد المقصد، قوانين العمل، وتوقعات بيئة العمل قبل السفر والالتحاق بالوظيفة.",
+                regSecTitle: "تسجيل العمالة عبر الإنترنت",
+                lblFname: "الاسم الكامل (بالإنجليزي)", lblPhone: "رقم الهاتف", lblTrade: "نوع الوظيفة المطلوبة", lblPassportNum: "رقم جواز السفر",
+                lblFileCv: "ارفاق السيرة الذاتية (CV)", lblFilePass: "ارفاق نسخة جواز السفر", lblFileCert: "ارفاق المؤهلات المهنية / الشهادات",
+                optHkeep: "تدبير منزلي وتنظيف", optLaund: "غسيل وكي الملابس", optCook: "مساعد طباخ", optChild: "رعاية الأطفال / كبار السن",
+                btnSubmitText: "<i class='fa-solid fa-paper-plane'></i> إرسال طلب التوظيف بأمان",
                 rSecTitle: "شروط المتقدمين للعمل",
                 r1: "حد السن: يجب أن يكون العمر فوق 21 سنة.", r2: "هوية إثيوبية صالحة وسجل جنائي نظيف وخالٍ من السوابق.", r3: "اجتياز الفحص الطبي الشامل المعتمد من الجهات الحكومية.", r4: "الاستعداد الكامل لحضور دورات التدريب اللغوي والثقافي.",
                 sSecTitle: "المهارات والواجبات الأساسية",
@@ -634,8 +771,8 @@
             document.getElementById('lnk-home').innerText = data.lnkHome;
             document.getElementById('lnk-dest').innerText = data.lnkDest;
             document.getElementById('lnk-proc').innerText = data.lnkProc;
+            document.getElementById('lnk-reg-nav').innerText = data.lnkRegNav;
             document.getElementById('lnk-req').innerText = data.lnkReq;
-            document.getElementById('lnk-cont').innerText = data.lnkCont;
             
             document.getElementById('hero-badge').innerText = data.heroBadge;
             document.getElementById('hero-title').innerHTML = data.heroTitle;
@@ -672,6 +809,21 @@
             document.getElementById('p3-desc').innerText = data.p3Desc;
             document.getElementById('p4-title').innerText = data.p4Title;
             document.getElementById('p4-desc').innerText = data.p4Desc;
+
+            // Form Fields Translations
+            document.getElementById('reg-sec-title').innerText = data.regSecTitle;
+            document.getElementById('lbl-fname').innerText = data.lblFname;
+            document.getElementById('lbl-phone').innerText = data.lblPhone;
+            document.getElementById('lbl-trade').innerText = data.lblTrade;
+            document.getElementById('lbl-passport-num').innerText = data.lblPassportNum;
+            document.getElementById('lbl-file-cv').innerText = data.lblFileCv;
+            document.getElementById('lbl-file-pass').innerText = data.lblFilePass;
+            document.getElementById('lbl-file-cert').innerText = data.lblFileCert;
+            document.getElementById('opt-hkeep').innerText = data.optHkeep;
+            document.getElementById('opt-laund').innerText = data.optLaund;
+            document.getElementById('opt-cook').innerText = data.optCook;
+            document.getElementById('opt-child').innerText = data.optChild;
+            document.getElementById('btn-submit-text').innerHTML = data.btnSubmitText;
 
             document.getElementById('r-sec-title').innerText = data.rSecTitle;
             document.getElementById('r1').innerText = data.r1;
