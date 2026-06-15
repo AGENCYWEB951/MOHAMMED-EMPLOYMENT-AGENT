@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Employment Agent - Official Overseas Recruitment</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="family">
+    
+    <style>
+        :root {
+            --primary: #0A3A2F; /* Deep Emerald (Trust & Legality) */
+            --secondary: #D4AF37; /* Premium Gold (Quality & Professionalism) */
+            --dark: #1A1A1A;
+            --light: #F4F7F6;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Noto Sans Ethiopic', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 175, 55, 0.5); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(214, 175, 55, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 175, 55, 0); }
+        }
+
+        .animate-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .animate-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Language Banner --- */
+        .lang-banner {
+            background: var(--dark);
+            color: var(--white);
+            padding: 8px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .lang-toggle select {
+            background: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 3px 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: rgba(10, 58, 47, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--secondary); }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover { color: var(--secondary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 58, 47, 0.95) 40%, rgba(10, 58, 47, 0.7)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=80') center/cover;
+            height: 75vh;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h2 { font-size: 3rem; margin-bottom: 10px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #cbd5e1; max-width: 600px; }
+        
+        .badge {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 6px 15px;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- Compliance / Trust Banner --- */
+        .trust-banner {
+            background: var(--white);
+            padding: 40px 10%;
+            margin: -50px 10% 40px 10%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .trust-card {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        .trust-card h4 { color: var(--primary); margin-bottom: 5px; font-size: 1.1rem; }
+        .trust-card p { font-size: 0.9rem; color: #555; }
+
+        /* --- Global Sections Layout --- */
+        section { padding: 80px 10%; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); }
+        .section-title div {
+            width: 70px; height: 4px; background: var(--secondary); margin: 10px auto 0; border-radius: 2px;
+        }
+
+        /* --- Destinations --- */
+        .destinations { background: #eef3f1; }
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .dest-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .dest-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .dest-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .dest-info { padding: 25px; }
+        .dest-info h3 { color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .dest-info ul { list-style: none; font-size: 0.9rem; color: #444; }
+        .dest-info ul li { margin-bottom: 8px; display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding-bottom: 4px;}
+        .dest-info ul li strong { color: var(--primary); }
+
+        /* --- Process Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: ''; position: absolute; width: 4px; background: var(--primary); top: 0; bottom: 0; left: 50%; margin-left: -2px;
+        }
+        .step {
+            padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box;
+        }
+        .step::after {
+            content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--white); border: 4px solid var(--secondary); top: 15px; border-radius: 50%; z-index: 1;
+        }
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+        .right::after { left: -10px; }
+        .content {
+            padding: 20px 30px; background: var(--white); position: relative; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .content h3 { color: var(--primary); margin-bottom: 5px; }
+
+        /* --- Requirements & Skills --- */
+        .req-skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .panel {
+            background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .panel h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.5rem; border-bottom: 2px solid var(--light); padding-bottom: 10px; }
+        .panel ul { list-style: none; }
+        .panel ul li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; }
+        .panel ul li i { color: var(--secondary); margin-top: 4px; }
+
+        /* --- Welfare & Action --- */
+        .welfare-cta {
+            background: linear-gradient(rgba(10, 58, 47, 0.95), rgba(10, 58, 47, 0.95)), url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1500&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+        .welfare-container { max-width: 700px; margin: 0 auto; }
+        .welfare-container p { margin-bottom: 30px; line-height: 1.6; font-size: 1.1rem; }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        .btn-primary { background: var(--secondary); color: var(--dark); animation: pulse 2s infinite; }
+        .btn-primary:hover { background: var(--white); color: var(--primary); }
+        .btn-secondary { border: 2px solid var(--white); color: var(--white); }
+        .btn-secondary:hover { background: var(--white); color: var(--primary); }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark);
+            color: #aaa;
+            padding: 40px 10% 20px;
+            font-size: 0.9rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 { color: var(--white); margin-bottom: 15px; }
+        .footer-col p { line-height: 1.6; }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 15px; text-align: center; }
+            nav a { margin: 0 10px; font-size: 0.85rem; }
+            .hero h2 { font-size: 2rem; }
+            .trust-banner { margin: -30px 2% 20px 2%; grid-template-columns: 1fr; }
+            .timeline::after { left: 31px; }
+            .step { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .left, .right { text-align: left; }
+            .left::after, .right::after { left: 21px; }
+            .req-skills-grid { grid-template-columns: 1fr; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language & Quick Contact Bar -->
+    <div class="lang-banner">
+        <div><i class="fa-solid fa-envelope"></i> mahamadibrahimumar@gmail.com</div>
+        <div class="lang-toggle">
+            <i class="fa-solid fa-globe"></i>
+            <select id="langSelector" onchange="toggleLanguage()">
+                <option value="en">English</option>
+                <option value="am">አማርኛ (Amharic)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">
+            <h1 id="nav-logo">MOHAMMED<span> EMPLOYMENT</span></h1>
+        </div>
+        <nav>
+            <a href="#home" id="lnk-home">Home</a>
+            <a href="#destinations" id="lnk-dest">Destinations</a>
+            <a href="#process" id="lnk-proc">Our Process</a>
+            <a href="#requirements" id="lnk-req">Requirements</a>
+            <a href="#contact" id="lnk-cont">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="badge" id="hero-badge">Licensed Private Employment Agency</div>
+        <h2 id="hero-title">Safe, Legal & Transparent<br>Oversees Recruitment</h2>
+        <p id="hero-desc">Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary" id="hero-btn1"><i class="fa-brands fa-whatsapp"></i> Apply Now</a>
+            <a href="#process" class="btn btn-secondary" id="hero-btn2">Learn Our Process</a>
+        </div>
+    </section>
+
+    <!-- Trust & Verification Banner -->
+    <div class="trust-banner">
+        <div class="trust-card">
+            <h4 id="t1-title"><i class="fa-solid fa-shield-halved"></i> Legal Compliance</h4>
+            <p id="t1-desc">Proclamation No. 923/2016 & 1246/2021</p>
+        </div>
+        <div class="trust-card">
+            <h4 id="t2-title"><i class="fa-solid fa-building"></i> Registered Agency</h4>
+            <p id="t2-desc">MOHAMMED EMPLOYMENT AGENT</p>
+        </div>
+        <div class="trust-card">
+            <h4 id="t3-title"><i class="fa-solid fa-user-tie"></i> Agency Manager</h4>
+            <p id="t3-desc">Mr. Mohammed Ebrahim Oumer</p>
+        </div>
+    </div>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <div class="section-title">
+            <h2 id="dest-sec-title">Countries of Destination</h2>
+            <div></div>
+        </div>
+        <div class="dest-grid">
+            <!-- Saudi Arabia -->
+            <div class="dest-card animate-up">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1586724237569-f38559b80894?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="dest-info">
+                    <h3>🇸🇦 Saudi Arabia (KSA)</h3>
+                    <ul>
+                        <li><span class="lbl-salary">Monthly Salary:</span> <strong>1,000 - 1,200 SAR</strong></li>
+                        <li><span class="lbl-hours">Max Work Hours:</span> <strong>10 Hours / Day</strong></li>
+                        <li><span class="lbl-rest">Weekly Rest:</span> <strong>1 Full Day (Paid)</strong></li>
+                        <li><span class="lbl-probation">Probation Period:</span> <strong>Up to 90 Days (Musaned)</strong></li>
+                        <li><span class="lbl-benefits">Tickets & Leave:</span> <strong>30 Days Sick Leave + Return Flight</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Kuwait -->
+            <div class="dest-card animate-up">
+                <div class="dest-img" style="background-image: url('https://images.unsplash.com/photo-1608958416733-4dfbbda82eb2?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="dest-info">
+                    <h3>🇰🇼 Kuwait</h3>
+                    <ul>
+                        <li><span class="lbl-salary">Monthly Salary:</span> <strong>100 - 110 KWD</strong></li>
+                        <li><span class="lbl-guarantee">Guarantee Period:</span> <strong>6 Months (PAM Regulated)</strong></li>
+                        <li><span class="lbl-rest">Weekly Rest:</span> <strong>1 Full Day (Paid)</strong></li>
+                        <li><span class="lbl-indemnity">End-of-Service Bonus:</span> <strong>1 Month Salary per Year</strong></li>
+                        <li><span class="lbl-amenities">Basic Amenities:</span> <strong>Free Food, Quarters & Medical</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline Section -->
+    <section id="process">
+        <div class="section-title">
+            <h2 id="proc-sec-title">Our Recruitment Process</h2>
+            <div></div>
+        </div>
+        <div class="timeline">
+            <div class="step left animate-up">
+                <div class="content">
+                    <h3 id="p1-title">1. Registration & Screening</h3>
+                    <p id="p1-desc">Candidates submit IDs, educational background, and history for an initial office review.</p>
+                </div>
+            </div>
+            <div class="step right animate-up">
+                <div class="content">
+                    <h3 id="p2-title">2. Medical Examination</h3>
+                    <p id="p2-desc">Approved candidates undergo mandatory medical fitness tests at authorized government centers.</p>
+                </div>
+            </div>
+            <div class="step left animate-up">
+                <div class="content">
+                    <h3 id="p3-title">3. Pre-Departure Training</h3>
+                    <p id="p3-desc">Candidates complete mandatory cultural awareness, language basics, and structured skill training.</p>
+                </div>
+            </div>
+            <div class="step right animate-up">
+                <div class="content">
+                    <h3 id="p4-title">4. Visa & Contract Processing</h3>
+                    <p id="p4-desc">We handle document attestation, visa stamping, and secure legally registered transparent contracts.</p>
+                </div>
+            </div>
+            <div class="step left animate-up">
+                <div class="content">
+                    <h3 id="p5-title">5. Deployment & Support</h3>
+                    <p id="p5-desc">Flight booking and strategic coordination with destination partners to guarantee ongoing welfare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements & Skills Section -->
+    <section id="requirements" style="background-color: #eef3f1;">
+        <div class="req-skills-grid">
+            <div class="panel animate-up">
+                <h3 id="r-sec-title">Candidate Requirements</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> <span id="r1">Age Limit: Must be above 21 years old.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span id="r2">Valid Ethiopian Identification and Clean Background.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span id="r3">Completion of authorized Government health screening.</span></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <span id="r4">Willingness to attend language and cultural training.</span></li>
+                </ul>
+            </div>
+            <div class="panel animate-up">
+                <h3 id="s-sec-title">Core Skills & Duties</h3>
+                <ul>
+                    <li><i class="fa-solid fa-star"></i> <span id="s1"><strong>Housekeeping:</strong> Expert cleaning, organizing, and room management.</span></li>
+                    <li><i class="fa-solid fa-star"></i> <span id="s2"><strong>Laundry & Care:</strong> Washing, professional ironing, and garment handling.</span></li>
+                    <li><i class="fa-solid fa-star"></i> <span id="s3"><strong>Meal Support:</strong> Preparation assistance and learning local/Arabic cuisines.</span></li>
+                    <li><i class="fa-solid fa-star"></i> <span id="s4"><strong>Family Support:</strong> Basic childcare routines and structured elderly support.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Worker Welfare & Call to Action -->
+    <section class="welfare-cta">
+        <div class="welfare-container animate-up">
+            <h2 id="w-title" style="margin-bottom: 15px;">24/7 Worker Welfare & Support</h2>
+            <p id="w-desc">Our absolute priority is the safety and well-being of our workers. We maintain active emergency response links and coordinate continuously with overseas partners to smoothly resolve any workplace or salary disputes.</p>
+            <div class="cta-buttons" id="contact">
+                <a href="https://wa.me/yourphonenumber" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> WhatsApp Chat</a>
+                <a href="https://t.me/yourusername" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-telegram"></i> Telegram Office</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>MOHAMMED EMPLOYMENT AGENT</h4>
+                <p id="f-addr"><strong>Office Address:</strong><br>Addis Ababa, Arada Sub City, Woreda 02<br>Ethiopia</p>
+            </div>
+            <div class="footer-col">
+                <h4 id="f-legal-title">Legal Framework</h4>
+                <p id="f-legal-desc">Fully accredited under Ethiopia's Ministry of Labor and Skills. Operating explicitly via Overseas Employment Proclamations 923/2016 & 1246/2021.</p>
+            </div>
+            <div class="footer-col">
+                <h4 id="f-contact-title">Direct Inquiries</h4>
+                <p>Email: mahamadibrahimumar@gmail.com<br>Manager: Mr. Mohammed Ebrahim Oumer</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 MOHAMMED EMPLOYMENT AGENT. All Rights Reserved. Fully Certified Overseas Agency.
+        </div>
+    </footer>
+
+    <!-- Multilingual & Animation Engine Script -->
+    <script>
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+
+        // Language Database
+        const translations = {
+            en: {
+                navLogo: "MOHAMMED<span> EMPLOYMENT</span>",
+                lnkHome: "Home", lnkDest: "Destinations", lnkProc: "Our Process", lnkReq: "Requirements", lnkCont: "Contact",
+                heroBadge: "Licensed Private Employment Agency",
+                heroTitle: "Safe, Legal & Transparent<br>Overseas Recruitment",
+                heroDesc: "Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.",
+                heroBtn1: "<i class='fa-brands fa-whatsapp'></i> Apply Now", heroBtn2: "Learn Our Process",
+                t1Title: "<i class='fa-solid fa-shield-halved'></i> Legal Compliance", t1Desc: "Proclamation No. 923/2016 & 1246/2021",
+                t2Title: "<i class='fa-solid fa-building'></i> Registered Agency", t2Desc: "MOHAMMED EMPLOYMENT AGENT",
+                t3Title: "<i class='fa-solid fa-user-tie'></i> Agency Manager", t3Desc: "Mr. Mohammed Ebrahim Oumer",
+                destSecTitle: "Countries of Destination",
+                lblSalary: "Monthly Salary:", lblHours: "Max Work Hours:", lblRest: "Weekly Rest:", lblProbation: "Probation Period:", lblBenefits: "Tickets & Leave:",
+                lblGuarantee: "Guarantee Period:", lblIndemnity: "End-of-Service Bonus:", lblAmenities: "Basic Amenities:",
+                procSecTitle: "Our Recruitment Process",
+                p1Title: "1. Registration & Screening", p1Desc: "Candidates submit IDs, educational background, and history for an initial office review.",
+                p2Title: "2. Medical Examination", p2Desc: "Approved candidates undergo mandatory medical fitness tests at authorized government centers.",
+                p3Title: "3. Pre-Departure Training", p3Desc: "Candidates complete mandatory cultural awareness, language basics, and structured skill training.",
+                p4Title: "4. Visa & Contract Processing", p4Desc: "We handle document attestation, visa stamping, and secure legally registered transparent contracts.",
+                p5Title: "5. Deployment & Support", p5Desc: "Flight booking and strategic coordination with destination partners to guarantee ongoing welfare.",
+                rSecTitle: "Candidate Requirements",
+                r1: "Age Limit: Must be above 21 years old.", r2: "Valid Ethiopian Identification and Clean Background.", r3: "Completion of authorized Government health screening.", r4: "Willingness to attend language and cultural training.",
+                sSecTitle: "Core Skills & Duties",
+                s1: "<strong>Housekeeping:</strong> Expert cleaning, organizing, and room management.", s2: "<strong>Laundry & Care:</strong> Washing, professional ironing, and garment handling.", s3: "<strong>Meal Support:</strong> Preparation assistance and learning local/Arabic cuisines.", s4: "<strong>Family Support:</strong> Basic childcare routines and structured elderly support.",
+                wTitle: "24/7 Worker Welfare & Support", wDesc: "Our absolute priority is the safety and well-being of our workers. We maintain active emergency response links and coordinate continuously with overseas partners to smoothly resolve any workplace or salary disputes.",
+                fAddr: "<strong>Office Address:</strong><br>Addis Ababa, Arada Sub City, Woreda 02<br>Ethiopia",
+                fLegalTitle: "Legal Framework", fLegalDesc: "Fully accredited under Ethiopia's Ministry of Labor and Skills. Operating explicitly via Overseas Employment Proclamations 923/2016 & 1246/2021.",
+                fContactTitle: "Direct Inquiries"
+            },
+            am: {
+                navLogo: "መሀመድ<span> የውጪ ሥራ ሥምሪት</span>",
+                lnkHome: "ዋና ገጽ", lnkDest: "የሚላኩበት አገራት", lnkProc: "የአሠራር ሂደት", lnkReq: "መስፈርቶች", lnkCont: "ያግኙን",
+                heroBadge: "ሕጋዊ የግል ሥራና ሠራተኛ አገናኝ ኤጀንሲ",
+                heroTitle: "አስተማማኝ፣ ሕጋዊ እና ግልጽ<br>የውጪ አገር ሥራ ሥምሪት",
+                heroDesc: "ብቃት ያላቸውን ኢትዮጵያውያን በባህረ ሰላጤው አገራት ካሉ ታዋቂ አ नियोक्ताዎች ጋር በሚኒስቴር መሥሪያ ቤት ሕጎች መሠረት እናገናኛለን።",
+                heroBtn1: "<i class='fa-brands fa-whatsapp'></i> አሁኑኑ ያመልክቱ", heroBtn2: "የአሠራር ሂደቱን ይመልከቱ",
+                t1Title: "<i class='fa-solid fa-shield-halved'></i> ሕጋዊ ተገዢነት", t1Desc: "በአዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የተሰጠ",
+                t2Title: "<i class='fa-solid fa-building'></i> የድርጅቱ ስም", t2Desc: "መሀመድ ኢብራሂም ኡመር የውጪ አገር ሥራ አገናኝ",
+                t3Title: "<i class='fa-solid fa-user-tie'></i> የሥራ አስኪያጅ ስም", t3Desc: "አቶ መሀመድ ኢብራሂም ኡመር",
+                destSecTitle: "የሥራ መዳረሻ አገራት",
+                lblSalary: "ወርሃዊ ደመወዝ:", lblHours: "ከፍተኛ የሥራ ሰዓት:", lblRest: "የሳምንት ዕረፍት:", lblProbation: "የሙከራ ጊዜ:", lblBenefits: "ትኬት እና ፈቃድ:",
+                lblGuarantee: "የዋስትና ጊዜ:", lblIndemnity: "የአገልግሎት ማጠናቀቂያ ክፍያ:", lblAmenities: "መሰረታዊ ፍላጎቶች:",
+                procSecTitle: "የቅጥር አሠራር ሂደታችን",
+                p1Title: "1. ምዝገባ እና ማጣራት", p1Desc: "ተወዳዳሪዎች መታወቂያቸውን፣ የትምህርት ማስረጃቸውን እና ታሪካቸውን ለመጀመሪያ ደረጃ ማጣራት በቢሯችን ያቀርባሉ።",
+                p2Title: "2. የሕክምና ምርመራ", p2Desc: "ተቀባይነት ያገኙ ዕጩዎች በመንግሥት በተፈቀዱ የሕክምና ማዕከላት በግዴታ የአካል ብቃት ምርመራ ያደርጋሉ።",
+                p3Title: "3. ከጉዞ በፊት ሥልጠና", p3Desc: "ዕጩዎች በተረጋገጡ ማዕከላት ውስጥ የሚያስፈልጉትን የባህል ግንዛቤ፣ የቋንቋ መሠረታዊ ነገሮች እና የክህሎት ሥልጠና ያጠናቅቃሉ።",
+                p4Title: "4. የቪዛ እና ውል ሂደት", p4Desc: "የሰነድ ማረጋገጫ፣ የቪዛ ማኅተም እና ሕጋዊ የተመዘገቡ ግልጽ የሥራ ውሎችን ማስተናገድ።",
+                p5Title: "5. ጉዞ እና ቀጣይ ድጋፍ", p5Desc: "ደህንነቱ የተጠበቀ መዳረሻ እና ቀጣይነት ያለው የደህንነት ድጋፍ ለማረጋገጥ የበረራ ትኬት መቁረጥ እና ከውጭ አጋሮች ጋር ማስተባበር።",
+                rSecTitle: "ለዕጩዎች የሚያስፈልጉ መስፈርቶች",
+                r1: "የዕድሜ ገደብ: ከ21 ዓመት በላይ መሆን አለበት።", r2: "ሕጋዊ የኢትዮጵያ መታወቂያ እና ከወንጀል ነፃ የሆኑ።", r3: "በመንግስት የተፈቀደ የጤና ምርመራ ያጠናቀቁ።", r4: "የቋንቋ እና የባህል ስልጠና ለመውሰድ ፈቃደኛ መሆን።",
+                sSecTitle: "ዋና ዋና ክህሎቶች እና ተግባራት",
+                s1: "<strong>የቤት አያያዝ:</strong> ጥራትን የጠበቀ ጽዳት፣ ማደራጀት እና የክፍል አስተዳደር ድጋፍ።", s2: "<strong>ልብስ ማጠብ እና መተኮስ:</strong> ማጠብ፣ በባለሙያ መተኮስ እና ልብሶችን በአግባቡ መያዝ።", s3: "<strong>የምግብ ዝግጅት ድጋፍ:</strong> የምግብ ዝግጅት እገዛ እና የአረብ ወይም የአካባቢውን ምግቦች መልመድ።", s4: "<strong>የቤተሰብ ድጋፍ:</strong> መሠረታዊ የሕፃናት እንክብካቤ እና የተዋቀሩ የአረጋውያን ድጋፍ።",
+                wTitle: "የ24/7 የሠራተኞች ደኅንነት እና ድጋፍ", wDesc: "ፍጹም ቅድሚያ የምንሰጠው ጉዳይ የሠራተኞቻችን ደኅንነት እና ደህንነት ነው። ማንኛውንም የደመወዝ ወይም የሥራ ቦታ አለመግባባቶች በተረጋጋ ሁኔታ ለመፍታት ንቁ የአደጋ ጊዜ የመገናኛ መስመሮችን እንይዛለን እንዲሁም ከውጭ አጋሮች ጋር ያለማቋረጥ እናስተባብራለን።",
+                fAddr: "<strong>የቢሮ አድራሻ:</strong><br>አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02<br>ኢትዮጵያ",
+                fLegalTitle: "ሕጋዊ ማዕቀፍ", fLegalDesc: "በኢትዮጵያ የሥራና ክህሎት ሚኒስቴር ሙሉ በሙሉ እውቅና የተሰጠው። በውጭ አገር የሥራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 መሠረት የሚሠራ።",
+                fContactTitle: "ቀጥታ ጥያቄዎች"
+            }
+        };
+
+        function toggleLanguage() {
+            const lang = document.getElementById('langSelector').value;
+            const data = translations[lang];
+
+            document.getElementById('nav-logo').innerHTML = data.navLogo;
+            document.getElementById('lnk-home').innerText = data.lnkHome;
+            document.getElementById('lnk-dest').innerText = data.lnkDest;
+            document.getElementById('lnk-proc').innerText = data.lnkProc;
+            document.getElementById('lnk-req').innerText = data.lnkReq;
+            document.getElementById('lnk-cont').innerText = data.lnkCont;
+            
+            document.getElementById('hero-badge').innerText = data.heroBadge;
+            document.getElementById('hero-title').innerHTML = data.heroTitle;
+            document.getElementById('hero-desc').innerText = data.heroDesc;
+            document.getElementById('hero-btn1').innerHTML = data.heroBtn1;
+            document.getElementById('hero-btn2').innerText = data.heroBtn2;
+
+            document.getElementById('t1-title').innerHTML = data.t1Title;
+            document.getElementById('t1-desc').innerText = data.t1Desc;
+            document.getElementById('t2-title').innerHTML = data.t2Title;
+            document.getElementById('t2-desc').innerText = data.t2Desc;
+            document.getElementById('t3-title').innerHTML = data.t3Title;
+            document.getElementById('t3-desc').innerText = data.t3Desc;
+
+            document.getElementById('dest-sec-title').innerText = data.destSecTitle;
+            document.querySelectorAll('.lbl-salary').forEach(el => el.innerText = data.lblSalary);
+            document.querySelectorAll('.lbl-hours').forEach(el => el.innerText = data.lblHours);
+            document.querySelectorAll('.lbl-rest').forEach(el => el.innerText = data.lblRest);
+            document.querySelectorAll('.lbl-probation').forEach(el => el.innerText = data.lblProbation);
+            document.querySelectorAll('.lbl-benefits').forEach(el => el.innerText = data.lblBenefits);
+            document.querySelectorAll('.lbl-guarantee').forEach(el => el.innerText = data.lblGuarantee);
+            document.querySelectorAll('.lbl-indemnity').forEach(el => el.innerText = data.lblIndemnity);
+            document.querySelectorAll('.lbl-amenities').forEach(el => el.innerText = data.lblAmenities);
+
+            document.getElementById('proc-sec-title').innerText = data.procSecTitle;
+            document.getElementById('p1-title').innerText = data.p1Title;
+            document.getElementById('p1-desc').innerText = data.p1Desc;
+            document.getElementById('p2-title').innerText = data.p2Title;
+            document.getElementById('p2-desc').innerText = data.p2Desc;
+            document.getElementById('p3-title').innerText = data.p3Title;
+            document.getElementById('p3-desc').innerText = data.p3Desc;
+            document.getElementById('p4-title').innerText = data.p4Title;
+            document.getElementById('p4-desc').innerText = data.p4Desc;
+            document.getElementById('p5-title').innerText = data.p5Title;
+            document.getElementById('p5-desc').innerText = data.p5Desc;
+
+            document.getElementById('r-sec-title').innerText = data.rSecTitle;
+            document.getElementById('r1').innerText = data.r1;
+            document.getElementById('r2').innerText = data.r2;
+            document.getElementById('r3').innerText = data.r3;
+            document.getElementById('r4').innerText = data.r4;
+
+            document.getElementById('s-sec-title').innerText = data.sSecTitle;
+            document.getElementById('s1').innerHTML = data.s1;
+            document.getElementById('s2').innerHTML = data.s2;
+            document.getElementById('s3').innerHTML = data.s3;
+            document.getElementById('s4').innerHTML = data.s4;
+
+            document.getElementById('w-title').innerText = data.wTitle;
+            document.getElementById('w-desc').innerText = data.wDesc;
+            document.getElementById('f-addr').innerHTML = data.fAddr;
+            document.getElementById('f-legal-title').innerText = data.fLegalTitle;
+            document.getElementById('f-legal-desc').innerText = data.fLegalDesc;
+            document.getElementById('f-contact-title').innerText = data.fContactTitle;
+        }
+    </script>
+</body>
+</html>
