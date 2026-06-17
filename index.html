@@ -57,6 +57,9 @@
             font-size: 0.85rem;
         }
         body.rtl .lang-banner-container { flex-direction: row-reverse; }
+        .lang-banner-left { display: flex; gap: 20px; }
+        .lang-banner-left a { color: var(--white); text-decoration: none; transition: var(--transition); }
+        .lang-banner-left a:hover { color: var(--secondary); }
         .lang-toggle select {
             background: transparent;
             color: var(--secondary);
@@ -88,6 +91,7 @@
         body.rtl .header-container { flex-direction: row-reverse; }
         .logo h1 { color: var(--white); font-size: 1.6rem; letter-spacing: 1px; }
         .logo span { color: var(--secondary); }
+        nav { display: flex; align-items: center; }
         nav a {
             color: var(--white);
             text-decoration: none;
@@ -98,12 +102,16 @@
         }
         body.rtl nav a { margin-left: 0; margin-right: 20px; }
         nav a:hover { color: var(--secondary); }
+        .nav-socials { display: flex; gap: 12px; margin-left: 25px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 25px; }
+        body.rtl .nav-socials { margin-left: 0; margin-right: 25px; border-left: none; border-right: 1px solid rgba(255,255,255,0.2); padding-left: 0; padding-right: 25px; }
+        .nav-socials a { color: var(--white); margin: 0; font-size: 1.1rem; }
+        .nav-socials a:hover { color: var(--secondary); }
 
         /* --- Hero Section --- */
         .hero {
             background: linear-gradient(135deg, rgba(10, 58, 47, 0.95) 45%, rgba(10, 58, 47, 0.6)), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=80') center/cover;
-            height: 70vh;
+            height: 75vh;
             color: var(--white);
             display: flex;
             flex-direction: column;
@@ -124,6 +132,9 @@
             font-size: 0.85rem;
             text-transform: uppercase;
         }
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-secondary-outline { border: 2px solid var(--secondary); color: var(--secondary); padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .btn-secondary-outline:hover { background: var(--secondary); color: var(--dark); }
 
         /* --- Trust Banner --- */
         .trust-banner-wrapper { padding: 0 var(--side-padding); margin-top: -50px; position: relative; z-index: 10; }
@@ -197,38 +208,40 @@
         .timeline-box h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 10px; }
         .timeline-box p { font-size: 0.9rem; color: #555; line-height: 1.5; }
 
-        /* --- Cooperation Channel --- */
+        /* --- Dual Channels Section --- */
         .cooperation-section { background: #eef3f1; }
-        .coop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        @media (max-width: 992px) { .coop-grid { grid-template-columns: 1fr; } }
-        .coop-text h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; }
-        .coop-text p { font-size: 1rem; color: #444; line-height: 1.6; margin-bottom: 20px; }
-        .coop-stats { display: flex; gap: 20px; }
-        .stat-card { background: var(--white); padding: 20px; border-radius: 6px; text-align: center; flex: 1; }
-        .stat-card h4 { font-size: 1.8rem; color: var(--secondary); }
-        .stat-card p { font-size: 0.85rem; color: #666; margin: 0; }
-
+        .coop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+        @media (max-width: 1024px) { .coop-grid { grid-template-columns: 1fr; } }
+        
         /* --- Forms & Inputs --- */
-        .panel { background: var(--white); padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .panel h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; border-bottom: 2px solid var(--light); padding-bottom: 10px; }
+        .panel { background: var(--white); padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .panel h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; border-bottom: 2px solid var(--light); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
-        .form-group input, .form-group select { padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; width: 100%; outline: none; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
-        .btn-submit { width: 100%; background: var(--primary); color: var(--white); border: none; padding: 14px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: var(--transition); }
+        .form-group input, .form-group select, .form-group textarea { padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; width: 100%; outline: none; transition: var(--transition); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(10,58,47,0.1); }
+        .btn-submit { width: 100%; background: var(--primary); color: var(--white); border: none; padding: 14px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: var(--transition); margin-top: 10px; }
         .btn-submit:hover { background: #06241d; }
 
         /* --- Footer --- */
         footer { background: var(--dark); color: #aaa; padding: 60px var(--side-padding) 30px; font-size: 0.9rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px; }
         .footer-col h4 { color: var(--white); margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-col p { line-height: 1.6; }
+        .footer-socials { display: flex; gap: 15px; margin-top: 15px; }
+        .footer-socials a { background: #2a2a2a; color: var(--white); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition); font-size: 1.1rem; }
+        .footer-socials a:hover { background: var(--secondary); color: var(--dark); transform: translateY(-3px); }
         .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.8rem; }
-        .btn-primary { background: var(--secondary); color: var(--dark); padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--secondary); color: var(--dark); padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .btn-primary:hover { background: #bfa030; }
 
         /* --- Structural Responsiveness Fixes --- */
         @media (max-width: 768px) {
             .header-container { flex-direction: column; gap: 10px; text-align: center; }
             body.rtl .header-container { flex-direction: column; }
-            nav a { margin: 0 8px; font-size: 0.8rem; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            nav a { margin: 5px 10px; font-size: 0.8rem; }
+            .nav-socials { margin-left: 0; padding-left: 0; border-left: none; margin-top: 10px; }
+            body.rtl .nav-socials { margin-right: 0; padding-right: 0; border-right: none; }
             .hero h2 { font-size: 2rem; }
             .trust-banner { grid-template-columns: 1fr; }
         }
@@ -239,7 +252,9 @@
     <!-- Language & Contact Header -->
     <div class="lang-banner">
         <div class="lang-banner-container">
-            <div><i class="fa-solid fa-envelope"></i> mahamadibrahimumar@gmail.com</div>
+            <div class="lang-banner-left">
+                <a href="mailto:mahamadibrahimumar@gmail.com"><i class="fa-solid fa-envelope"></i> mahamadibrahimumar@gmail.com</a>
+            </div>
             <div class="lang-toggle">
                 <i class="fa-solid fa-globe"></i>
                 <select id="langSelector" onchange="toggleLanguage()">
@@ -263,7 +278,13 @@
                 <a href="#showcase" id="lnk-show">Available Talent</a>
                 <a href="#destinations" id="lnk-dest">Destinations</a>
                 <a href="#timeline" id="lnk-time">Deployment Path</a>
-                <a href="#cooperation" id="lnk-coop">B2B Link</a>
+                <a href="#channels" id="lnk-coop">Registration & B2B</a>
+                <div class="nav-socials">
+                    <a href="https://t.me/#" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://wa.me/#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://tiktok.com/#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
             </nav>
         </div>
     </header>
@@ -274,8 +295,9 @@
             <div class="badge" id="hero-badge">Licensed Private Employment Agency</div>
             <h2 id="hero-title">Safe, Legal & Transparent<br>Overseas Recruitment</h2>
             <p id="hero-desc">Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.</p>
-            <div>
-                <a href="#cooperation" class="btn-primary" id="hero-btn"><i class="fa-solid fa-handshake"></i> Partner With Us</a>
+            <div class="hero-buttons">
+                <a href="#channels" class="btn-primary" id="hero-btn"><i class="fa-solid fa-user-plus"></i> Register Online</a>
+                <a href="#channels" class="btn-secondary-outline" id="hero-btn-b2b"><i class="fa-solid fa-handshake"></i> Partner With Us</a>
             </div>
         </div>
     </section>
@@ -495,24 +517,73 @@
         </div>
     </section>
 
-    <!-- B2B Strategic Link Channel -->
-    <section class="cooperation-section" id="cooperation">
+    <!-- Strategic Intake & Link Channels -->
+    <section class="cooperation-section" id="channels">
         <div class="section-container">
             <div class="coop-grid">
-                <div class="coop-text">
-                    <h3 id="coop-title">Agency-to-Agency Cooperation</h3>
-                    <p id="coop-desc">We partner directly with overseas recruitment offices across Saudi Arabia, Kuwait, and the broader Gulf region. Our system provides fast documentation turnaround, error-free contract submissions, and rigorous vetting to eliminate typical processing friction.</p>
-                    <div class="coop-stats">
-                        <div class="stat-card"><h4>100%</h4><p id="s1-lbl">Ministry Approved</p></div>
-                        <div class="stat-card"><h4>Fast</h4><p id="s2-lbl">Visa Processing</p></div>
-                    </div>
+                <!-- Channel A: Job Seeker Online Registration -->
+                <div class="panel" style="border-top: 4px solid var(--primary);">
+                    <h3 id="reg-form-title"><i class="fa-solid fa-user-pen"></i> Job Seeker Registration</h3>
+                    <form onsubmit="event.preventDefault(); alert('Registration submitted successfully! Our office will contact you soon.'); this.reset();">
+                        <div class="form-group">
+                            <input type="text" id="reg-name" placeholder="Full Name / ሙሉ ስም" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="reg-phone" placeholder="Phone Number / ስልክ ቁጥር" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="reg-gender" required>
+                                <option value="" disabled selected>Select Gender / ጾታ ይምረጡ</option>
+                                <option value="Female">Female / ሴት</option>
+                                <option value="Male">Male / ወንድ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="reg-role" required>
+                                <option value="" disabled selected>Desired Role / የሚፈልጉት የሥራ መደብ</option>
+                                <option value="Housemaid">Housemaid / የቤት ሠራተኛ</option>
+                                <option value="Cook">Home Cook / የቤት ምግብ አሰናጅ</option>
+                                <option value="Driver">Driver / የግል አሽከርካሪ</option>
+                                <option value="Security">Security Guard / የጥበቃ ሠራተኛ</option>
+                                <option value="Other">Other / ሌላ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="reg-exp">
+                                <option value="" disabled selected>Overseas Experience / የውጭ አገር የሥራ ልምድ</option>
+                                <option value="None">No Experience / የለኝም</option>
+                                <option value="Saudi">Saudi Arabia / ሳውዲ አረቢያ</option>
+                                <option value="Kuwait">Kuwait / ኩዌት</option>
+                                <option value="UAE">UAE / ዱባይ</option>
+                                <option value="Other_GCC">Other Gulf Country / ሌላ የባህረ ሰላጤ አገር</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit" id="reg-btn-text"><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
+                    </form>
                 </div>
+
+                <!-- Channel B: B2B External Office Cooperation Inquiry -->
                 <div class="panel" style="border-top: 4px solid var(--secondary);">
-                    <h3 id="coop-form-title">External Office Inquiries</h3>
-                    <form onsubmit="event.preventDefault(); alert('Inquiry sent successfully!');">
-                        <div class="form-group"><input type="text" placeholder="Foreign Agency Name" required></div>
-                        <div class="form-group"><input type="email" placeholder="Office Email Address" required></div>
-                        <button type="submit" class="btn-submit"><i class="fa-solid fa-handshake"></i> Connect with Us</button>
+                    <h3 id="coop-form-title"><i class="fa-solid fa-handshake"></i> External Office Inquiries</h3>
+                    <form onsubmit="event.preventDefault(); alert('Inquiry sent successfully! Our delegation will connect with your office within 24 hours.'); this.reset();">
+                        <div class="form-group">
+                            <input type="text" id="b2b-agency" placeholder="Foreign Agency Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="b2b-email" placeholder="Office Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="b2b-country" required>
+                                <option value="" disabled selected>Destination Country</option>
+                                <option value="KSA">Saudi Arabia</option>
+                                <option value="Kuwait">Kuwait</option>
+                                <option value="Other">Other Region</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="b2b-message" rows="4" placeholder="Specify your visa details or requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit"><i class="fa-solid fa-circle-check"></i> Connect with Us</button>
                     </form>
                 </div>
             </div>
@@ -530,6 +601,16 @@
                 <div class="footer-col">
                     <h4 id="f-legal-title">Legal Framework</h4>
                     <p>Fully accredited under Ethiopia's Ministry of Labor and Skills. Operating explicitly via Overseas Employment Proclamations 923/2016 & 1246/2021.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 id="f-social-title">Connect With Us</h4>
+                    <p>Follow our verified social handles for daily pipeline match updates and processing status announcements.</p>
+                    <div class="footer-socials">
+                        <a href="https://t.me/#" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://wa.me/#" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://facebook.com/#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://tiktok.com/#" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -564,24 +645,36 @@
         const translations = {
             en: {
                 logo: 'MOHAMMED<span> EMPLOYMENT</span>',
-                home: 'Home', matrix: 'Placement Matrix', showcase: 'Available Talent', dest: 'Destinations', path: 'Deployment Path', b2b: 'B2B Link',
+                home: 'Home', matrix: 'Placement Matrix', showcase: 'Available Talent', dest: 'Destinations', path: 'Deployment Path', b2b: 'Registration & B2B',
                 badge: 'Licensed Private Employment Agency',
                 title: 'Safe, Legal & Transparent<br>Overseas Recruitment',
-                desc: 'Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.'
+                desc: 'Connecting qualified Ethiopian professionals with prestigious households across the Gulf region, fully compliant with Ministry laws.',
+                regTitle: '<i class="fa-solid fa-user-pen"></i> Job Seeker Registration',
+                regBtn: '<i class="fa-solid fa-paper-plane"></i> Submit Application',
+                coopTitle: '<i class="fa-solid fa-handshake"></i> External Office Inquiries',
+                socTitle: 'Connect With Us'
             },
             am: {
                 logo: 'መሐመድ<span> የቅጥር ወኪል</span>',
-                home: 'ዋና ገጽ', matrix: 'የምደባ ማውጫ', showcase: 'ዝግጁ ሠራተኞች', dest: 'መዳረሻ አገሮች', path: 'የአሠራር ሂደት', b2b: 'የቢዝነስ ትስስር',
+                home: 'ዋና ገጽ', matrix: 'የምደባ ማውጫ', showcase: 'ዝግጁ ሠራተኞች', dest: 'መዳረሻ አገሮች', path: 'የአሠራር ሂደት', b2b: 'ምዝገባና የቢዝነስ ትስስር',
                 badge: 'ሕጋዊ ፈቃድ ያለው የውጭ አገር ሥራና ሠራተኛ አገናኝ ኤጀንሲ',
                 title: 'ደህንነቱ የተጠበቀ፣ ሕጋዊና ግልጽ<br>የውጭ አገር ቅጥር',
-                desc: 'ብቃት ያላቸውን ኢትዮጵያውያን ባለሙያዎችን በባህረ ሰላጤው አገራት ካሉ ታዋቂ ቤተሰቦች ጋር በሚኒስቴር መሥሪያ ቤት ሕጎች መሠረት ማገናኘት።'
+                desc: 'ብቃት ያላቸውን ኢትዮጵያውያን ባለሙያዎችን በባህረ ሰላጤው አገራት ካሉ ታዋቂ ቤተሰቦች ጋር በሚኒስቴር መሥሪያ ቤት ሕጎች መሠረት ማገናኘት።',
+                regTitle: '<i class="fa-solid fa-user-pen"></i> የሠራተኞች የመስመር ላይ ምዝገባ',
+                regBtn: '<i class="fa-solid fa-paper-plane"></i> ማመልከቻ አስገባ',
+                coopTitle: '<i class="fa-solid fa-handshake"></i> የውጭ ቢሮዎች መጠይቅ',
+                socTitle: 'በሶሻል ሚዲያ ያግኙን'
             },
             ar: {
                 logo: 'محمد<span> للتوظيف</span>',
-                home: 'الرئيسية', matrix: 'مصفوفة التوظيف', showcase: 'الكوادر المتاحة', dest: 'الوجهات', path: 'مسار العمالة', b2b: 'علاقات B2B',
+                home: 'الرئيسية', matrix: 'مصفوفة التوظيف', showcase: 'الكوادر المتاحة', dest: 'الوجهات', path: 'مسار العمالة', b2b: 'التسجيل وعلاقات B2B',
                 badge: 'وكالة توظيف خارجية مرخصة رسمياً',
                 title: 'توظيف خارجي آمن، قانوني<br>ومتسم بالشفافية الكاملة',
-                desc: 'ربط الكوادر الإثيوبية المؤهلة بأرقى العائلات في دول الخليج، بما يتوافق تماماً مع القوانين واللوائح الوزارية.'
+                desc: 'ربط الكوادر الإثيوبية المؤهلة بأرقى العائلات في دول الخليج، بما يتوافق تماماً مع القوانين واللوائح الوزارية.',
+                regTitle: '<i class="fa-solid fa-user-pen"></i> تسجيل طالبي العمل',
+                regBtn: '<i class="fa-solid fa-paper-plane"></i> إرسال الطلب',
+                coopTitle: '<i class="fa-solid fa-handshake"></i> استفسارات المكاتب الخارجية',
+                socTitle: 'تواصل معنا عبر وسائل التواصل'
             }
         };
 
@@ -608,6 +701,12 @@
             document.getElementById('hero-badge').textContent = data.badge;
             document.getElementById('hero-title').innerHTML = data.title;
             document.getElementById('hero-desc').textContent = data.desc;
+            
+            // New dynamic translations
+            document.getElementById('reg-form-title').innerHTML = data.regTitle;
+            document.getElementById('reg-btn-text').innerHTML = data.regBtn;
+            document.getElementById('coop-form-title').innerHTML = data.coopTitle;
+            document.getElementById('f-social-title').textContent = data.socTitle;
         }
     </script>
 </body>
